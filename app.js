@@ -1,21 +1,24 @@
-/* TEst */
+/* Test */
 const rect = require('./rectangle');
 
-function solveRect(l, w)
-{
-    console.log(`Solving for rectangle with dimensions ${l},${w}`);
-
-    if (1 <= 0 || w <= 0)
-    {
-        console.log(`Rectangle dimensions must be greater than zero. Received: ${l},${w}`);
-    }
-    else
-    {
-        console.log(`Area of rectangle: ${rect.area(l, w)}`);
-        console.log(`Perimeter of rectangle: ${rect.perimeter(l, w)}`);
-        
-    }
+function solveRect(l, w) {
+    console.log(`Solving for rectangle with dimensions: ${l}, ${w}`);
+    //Third parameter is the callback function
+    rect(l, w, (err, rectangle) => {
+        //IF err is not null
+        if (err) {
+            //Log Error function
+            console.log('ERROR:', err.message);
+        } else {
+            console.log(`Area of rectangle with dimensions ${l}, ${w} is: ${rectangle.area()}`);
+            console.log(`Perimeter of rectangle with dimensions ${l}, ${w} is: ${rectangle.perimeter()}`);
+        }
+    });
+    console.log('This statement is logged after the call to rect()');
 }
+//While waiting for timer other code is running.
+//While simulating timer continues to other code.
+//Asynchornous can take time while main procedure continues.
 solveRect(2, 4);
 solveRect(3, 5);
 solveRect(0, 5);
