@@ -1,3 +1,4 @@
+/* TEst */
 const rect = require('./rectangle');
 
 function solveRect(l, w)
